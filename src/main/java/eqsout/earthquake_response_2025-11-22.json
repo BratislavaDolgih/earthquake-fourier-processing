@@ -1,0 +1,2601 @@
+{"type":"FeatureCollection","metadata":{"count":100},"features":[{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      32.6328,
+      34.8757,
+      -11.6
+    ]
+  },
+  "id": "20251122_0000100",
+  "properties": {
+    "source_id": "1903141",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:32:42.741727Z",
+    "time": "2025-11-22T07:17:50.2Z",
+    "flynn_region": "CYPRUS REGION",
+    "lat": 34.8757,
+    "lon": 32.6328,
+    "depth": 11.6,
+    "evtype": "ke",
+    "auth": "KOERI",
+    "mag": 2.1,
+    "magtype": "ml",
+    "unid": "20251122_0000100"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      37.6745,
+      37.9838,
+      -5.0
+    ]
+  },
+  "id": "20251122_0000099",
+  "properties": {
+    "source_id": "1903139",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:21:50.124125Z",
+    "time": "2025-11-22T07:12:04.3Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 37.9838,
+    "lon": 37.6745,
+    "depth": 5.0,
+    "evtype": "ke",
+    "auth": "KOERI",
+    "mag": 2.4,
+    "magtype": "ml",
+    "unid": "20251122_0000099"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      32.4057,
+      34.5777,
+      -8.5
+    ]
+  },
+  "id": "20251122_0000098",
+  "properties": {
+    "source_id": "1903138",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:17:57.476117Z",
+    "time": "2025-11-22T07:08:10.0Z",
+    "flynn_region": "CYPRUS REGION",
+    "lat": 34.5777,
+    "lon": 32.4057,
+    "depth": 8.5,
+    "evtype": "ke",
+    "auth": "KOERI",
+    "mag": 2.6,
+    "magtype": "ml",
+    "unid": "20251122_0000098"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      32.3607,
+      34.4893,
+      -4.4
+    ]
+  },
+  "id": "20251122_0000096",
+  "properties": {
+    "source_id": "1903136",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:15:10.446023Z",
+    "time": "2025-11-22T07:05:33.6Z",
+    "flynn_region": "CYPRUS REGION",
+    "lat": 34.4893,
+    "lon": 32.3607,
+    "depth": 4.4,
+    "evtype": "ke",
+    "auth": "KOERI",
+    "mag": 2.2,
+    "magtype": "ml",
+    "unid": "20251122_0000096"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -25.1420,
+      37.5580,
+      -0.1
+    ]
+  },
+  "id": "20251122_0000094",
+  "properties": {
+    "source_id": "1903134",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:08:40.914205Z",
+    "time": "2025-11-22T07:04:11.7Z",
+    "flynn_region": "AZORES ISLANDS, PORTUGAL",
+    "lat": 37.5580,
+    "lon": -25.1420,
+    "depth": 0.1,
+    "evtype": "ke",
+    "auth": "IPMA",
+    "mag": 3.0,
+    "magtype": "ml",
+    "unid": "20251122_0000094"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -69.2400,
+      -19.2200,
+      -110.7
+    ]
+  },
+  "id": "20251122_0000095",
+  "properties": {
+    "source_id": "1903135",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:09:06.214697Z",
+    "time": "2025-11-22T07:02:08.0Z",
+    "flynn_region": "TARAPACA, CHILE",
+    "lat": -19.2200,
+    "lon": -69.2400,
+    "depth": 110.7,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 3.0,
+    "magtype": "ml",
+    "unid": "20251122_0000095"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2552,
+      39.1783,
+      -14.8
+    ]
+  },
+  "id": "20251122_0000092",
+  "properties": {
+    "source_id": "1903132",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:06:14.255261Z",
+    "time": "2025-11-22T07:00:03.2Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1783,
+    "lon": 28.2552,
+    "depth": 14.8,
+    "evtype": "ke",
+    "auth": "KOERI",
+    "mag": 2.4,
+    "magtype": "ml",
+    "unid": "20251122_0000092"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -65.8235,
+      18.1243,
+      -13.0
+    ]
+  },
+  "id": "20251122_0000093",
+  "properties": {
+    "source_id": "1903133",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:07:37.419332Z",
+    "time": "2025-11-22T06:53:11.93Z",
+    "flynn_region": "PUERTO RICO",
+    "lat": 18.1243,
+    "lon": -65.8235,
+    "depth": 13.0,
+    "evtype": "ke",
+    "auth": "PR",
+    "mag": 2.3,
+    "magtype": "md",
+    "unid": "20251122_0000093"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      26.9114,
+      37.9492,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000097",
+  "properties": {
+    "source_id": "1903137",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:16:09.68542Z",
+    "time": "2025-11-22T06:48:03.0Z",
+    "flynn_region": "DODECANESE ISLANDS, GREECE",
+    "lat": 37.9492,
+    "lon": 26.9114,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.8,
+    "magtype": "ml",
+    "unid": "20251122_0000097"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.0905,
+      39.2227,
+      -7.1
+    ]
+  },
+  "id": "20251122_0000088",
+  "properties": {
+    "source_id": "1903128",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:57:04.505236Z",
+    "time": "2025-11-22T06:32:20.47Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2227,
+    "lon": 28.0905,
+    "depth": 7.1,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.2,
+    "magtype": "ml",
+    "unid": "20251122_0000088"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      36.6228,
+      37.9892,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000087",
+  "properties": {
+    "source_id": "1903126",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:02:07.649496Z",
+    "time": "2025-11-22T06:30:59.43Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 37.9892,
+    "lon": 36.6228,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.0,
+    "magtype": "ml",
+    "unid": "20251122_0000087"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -179.8568,
+      -23.3544,
+      -588.6
+    ]
+  },
+  "id": "20251122_0000089",
+  "properties": {
+    "source_id": "1903129",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:44:16.777052Z",
+    "time": "2025-11-22T06:27:11.604Z",
+    "flynn_region": "SOUTH OF FIJI ISLANDS",
+    "lat": -23.3544,
+    "lon": -179.8568,
+    "depth": 588.6,
+    "evtype": "ke",
+    "auth": "NEIC",
+    "mag": 4.6,
+    "magtype": "mb",
+    "unid": "20251122_0000089"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1610,
+      39.2173,
+      -14.9
+    ]
+  },
+  "id": "20251122_0000085",
+  "properties": {
+    "source_id": "1903123",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:50:40.083028Z",
+    "time": "2025-11-22T06:26:43.14Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2173,
+    "lon": 28.1610,
+    "depth": 14.9,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.9,
+    "magtype": "ml",
+    "unid": "20251122_0000085"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9831,
+      39.1936,
+      -11.8
+    ]
+  },
+  "id": "20251122_0000090",
+  "properties": {
+    "source_id": "1903124",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:06:07.503804Z",
+    "time": "2025-11-22T06:23:23.99Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1936,
+    "lon": 28.9831,
+    "depth": 11.8,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.5,
+    "magtype": "ml",
+    "unid": "20251122_0000090"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2081,
+      39.1811,
+      -11.0
+    ]
+  },
+  "id": "20251122_0000084",
+  "properties": {
+    "source_id": "1903122",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:32:12.514965Z",
+    "time": "2025-11-22T06:08:23.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1811,
+    "lon": 28.2081,
+    "depth": 11.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.1,
+    "magtype": "ml",
+    "unid": "20251122_0000084"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.7211,
+      37.2267,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000081",
+  "properties": {
+    "source_id": "1903117",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:36:47.999134Z",
+    "time": "2025-11-22T06:03:14.82Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 37.2267,
+    "lon": 28.7211,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.1,
+    "magtype": "ml",
+    "unid": "20251122_0000081"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.3014,
+      39.1008,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000086",
+  "properties": {
+    "source_id": "1903125",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:38:57.16298Z",
+    "time": "2025-11-22T05:54:21.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1008,
+    "lon": 28.3014,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.2,
+    "magtype": "ml",
+    "unid": "20251122_0000086"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -86.1800,
+      10.3200,
+      -22.0
+    ]
+  },
+  "id": "20251122_0000078",
+  "properties": {
+    "source_id": "1903113",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:36:04.474295Z",
+    "time": "2025-11-22T05:30:11.0Z",
+    "flynn_region": "OFF COAST OF COSTA RICA",
+    "lat": 10.3200,
+    "lon": -86.1800,
+    "depth": 22.0,
+    "evtype": "ke",
+    "auth": "INET",
+    "mag": 3.9,
+    "magtype": "m",
+    "unid": "20251122_0000078"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9902,
+      39.2076,
+      -13.9
+    ]
+  },
+  "id": "20251122_0000077",
+  "properties": {
+    "source_id": "1903112",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:59:32.217488Z",
+    "time": "2025-11-22T05:22:40.95Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2076,
+    "lon": 28.9902,
+    "depth": 13.9,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000077"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -94.4000,
+      17.2560,
+      -152.8
+    ]
+  },
+  "id": "20251122_0000080",
+  "properties": {
+    "source_id": "1903116",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:43:01.885578Z",
+    "time": "2025-11-22T05:19:32.0Z",
+    "flynn_region": "VERACRUZ, MEXICO",
+    "lat": 17.2560,
+    "lon": -94.4000,
+    "depth": 152.8,
+    "evtype": "ke",
+    "auth": "UNM",
+    "mag": 4.2,
+    "magtype": "m",
+    "unid": "20251122_0000080"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.0908,
+      39.2594,
+      -8.7
+    ]
+  },
+  "id": "20251122_0000075",
+  "properties": {
+    "source_id": "1903110",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:20:44.184359Z",
+    "time": "2025-11-22T05:07:58.71Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2594,
+    "lon": 28.0908,
+    "depth": 8.7,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.8,
+    "magtype": "ml",
+    "unid": "20251122_0000075"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9886,
+      39.2481,
+      -7.3
+    ]
+  },
+  "id": "20251122_0000076",
+  "properties": {
+    "source_id": "1903111",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:34:47.936327Z",
+    "time": "2025-11-22T05:06:40.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2481,
+    "lon": 28.9886,
+    "depth": 7.3,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.2,
+    "magtype": "ml",
+    "unid": "20251122_0000076"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -91.4600,
+      13.9300,
+      -25.0
+    ]
+  },
+  "id": "20251122_0000072",
+  "properties": {
+    "source_id": "1903107",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:08:06.191186Z",
+    "time": "2025-11-22T05:00:31.0Z",
+    "flynn_region": "OFFSHORE GUATEMALA",
+    "lat": 13.9300,
+    "lon": -91.4600,
+    "depth": 25.0,
+    "evtype": "ke",
+    "auth": "INET",
+    "mag": 2.8,
+    "magtype": "m",
+    "unid": "20251122_0000072"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      38.5139,
+      38.1672,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000074",
+  "properties": {
+    "source_id": "1903109",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:09:14.773771Z",
+    "time": "2025-11-22T04:57:57.0Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.1672,
+    "lon": 38.5139,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.2,
+    "magtype": "ml",
+    "unid": "20251122_0000074"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -98.3596,
+      36.4661,
+      -0.9
+    ]
+  },
+  "id": "20251122_0000066",
+  "properties": {
+    "source_id": "1903097",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:03:42.866506Z",
+    "time": "2025-11-22T04:57:48.049825Z",
+    "flynn_region": "OKLAHOMA",
+    "lat": 36.4661,
+    "lon": -98.3596,
+    "depth": 0.9,
+    "evtype": "ke",
+    "auth": "OK",
+    "mag": 2.2,
+    "magtype": "ml",
+    "unid": "20251122_0000066"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1522,
+      39.2092,
+      -5.1
+    ]
+  },
+  "id": "20251122_0000071",
+  "properties": {
+    "source_id": "1903106",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:06:48.842409Z",
+    "time": "2025-11-22T04:57:25.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2092,
+    "lon": 28.1522,
+    "depth": 5.1,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.2,
+    "magtype": "ml",
+    "unid": "20251122_0000071"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -104.3410,
+      31.6870,
+      -5.7
+    ]
+  },
+  "id": "20251122_0000067",
+  "properties": {
+    "source_id": "1903098",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:59:42.657594Z",
+    "time": "2025-11-22T04:56:15.783845Z",
+    "flynn_region": "WESTERN TEXAS",
+    "lat": 31.6870,
+    "lon": -104.3410,
+    "depth": 5.7,
+    "evtype": "ke",
+    "auth": "TX",
+    "mag": 2.2,
+    "magtype": "ml",
+    "unid": "20251122_0000067"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9669,
+      39.2233,
+      -9.8
+    ]
+  },
+  "id": "20251122_0000073",
+  "properties": {
+    "source_id": "1903108",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:08:06.584113Z",
+    "time": "2025-11-22T04:47:45.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2233,
+    "lon": 28.9669,
+    "depth": 9.8,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000073"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1672,
+      39.2344,
+      -4.7
+    ]
+  },
+  "id": "20251122_0000070",
+  "properties": {
+    "source_id": "1903104",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:05:45.388339Z",
+    "time": "2025-11-22T04:42:35.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2344,
+    "lon": 28.1672,
+    "depth": 4.7,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.5,
+    "magtype": "ml",
+    "unid": "20251122_0000070"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1575,
+      39.2097,
+      -6.0
+    ]
+  },
+  "id": "20251122_0000069",
+  "properties": {
+    "source_id": "1903103",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:04:30.40603Z",
+    "time": "2025-11-22T04:41:06.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2097,
+    "lon": 28.1575,
+    "depth": 6.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.5,
+    "magtype": "ml",
+    "unid": "20251122_0000069"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      90.5900,
+      23.9600,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000079",
+  "properties": {
+    "source_id": "1903115",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:49:31.561842Z",
+    "time": "2025-11-22T04:36:12.0Z",
+    "flynn_region": "BANGLADESH",
+    "lat": 23.9600,
+    "lon": 90.5900,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "NDI",
+    "mag": 3.3,
+    "magtype": "m",
+    "unid": "20251122_0000079"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1575,
+      39.2083,
+      -5.2
+    ]
+  },
+  "id": "20251122_0000068",
+  "properties": {
+    "source_id": "1903100",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:21:47.330098Z",
+    "time": "2025-11-22T04:35:20.28Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2083,
+    "lon": 28.1575,
+    "depth": 5.2,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.7,
+    "magtype": "ml",
+    "unid": "20251122_0000068"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -92.0100,
+      13.4100,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000063",
+  "properties": {
+    "source_id": "1903093",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:36:05.239343Z",
+    "time": "2025-11-22T04:26:52.0Z",
+    "flynn_region": "OFFSHORE GUATEMALA",
+    "lat": 13.4100,
+    "lon": -92.0100,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "INET",
+    "mag": 3.0,
+    "magtype": "m",
+    "unid": "20251122_0000063"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -124.4890,
+      40.4633,
+      -24.0
+    ]
+  },
+  "id": "20251122_0000056",
+  "properties": {
+    "source_id": "1903086",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:26:19.968672Z",
+    "time": "2025-11-22T04:24:39.9Z",
+    "flynn_region": "OFFSHORE NORTHERN CALIFORNIA",
+    "lat": 40.4633,
+    "lon": -124.4890,
+    "depth": 24.0,
+    "evtype": "ke",
+    "auth": "NC",
+    "mag": 2.7,
+    "magtype": "md",
+    "unid": "20251122_0000056"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2842,
+      39.0456,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000064",
+  "properties": {
+    "source_id": "1903094",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T05:19:29.35834Z",
+    "time": "2025-11-22T04:07:18.78Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.0456,
+    "lon": 28.2842,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000064"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2847,
+      39.1611,
+      -6.9
+    ]
+  },
+  "id": "20251122_0000065",
+  "properties": {
+    "source_id": "1903095",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:43:06.352348Z",
+    "time": "2025-11-22T04:02:56.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1611,
+    "lon": 28.2847,
+    "depth": 6.9,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000065"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -91.0400,
+      13.6400,
+      -26.0
+    ]
+  },
+  "id": "20251122_0000057",
+  "properties": {
+    "source_id": "1903087",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:29:11.511476Z",
+    "time": "2025-11-22T03:59:16.0Z",
+    "flynn_region": "OFFSHORE GUATEMALA",
+    "lat": 13.6400,
+    "lon": -91.0400,
+    "depth": 26.0,
+    "evtype": "ke",
+    "auth": "INET",
+    "mag": 3.0,
+    "magtype": "m",
+    "unid": "20251122_0000057"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -155.7272,
+      56.3028,
+      -35.0
+    ]
+  },
+  "id": "20251122_0000055",
+  "properties": {
+    "source_id": "1903083",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:05:24.81244Z",
+    "time": "2025-11-22T03:58:31.147Z",
+    "flynn_region": "ALASKA PENINSULA",
+    "lat": 56.3028,
+    "lon": -155.7272,
+    "depth": 35.0,
+    "evtype": "ke",
+    "auth": "NEIC",
+    "mag": 3.9,
+    "magtype": "ml",
+    "unid": "20251122_0000055"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2772,
+      39.1669,
+      -7.1
+    ]
+  },
+  "id": "20251122_0000060",
+  "properties": {
+    "source_id": "1903090",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:32:00.113412Z",
+    "time": "2025-11-22T03:56:20.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1669,
+    "lon": 28.2772,
+    "depth": 7.1,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.1,
+    "magtype": "ml",
+    "unid": "20251122_0000060"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -90.4000,
+      14.1500,
+      -159.0
+    ]
+  },
+  "id": "20251122_0000054",
+  "properties": {
+    "source_id": "1903080",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:57:05.733454Z",
+    "time": "2025-11-22T03:47:11.0Z",
+    "flynn_region": "GUATEMALA",
+    "lat": 14.1500,
+    "lon": -90.4000,
+    "depth": 159.0,
+    "evtype": "ke",
+    "auth": "INET",
+    "mag": 3.1,
+    "magtype": "m",
+    "unid": "20251122_0000054"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2400,
+      39.1794,
+      -6.9
+    ]
+  },
+  "id": "20251122_0000059",
+  "properties": {
+    "source_id": "1903089",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:31:08.881929Z",
+    "time": "2025-11-22T03:44:41.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1794,
+    "lon": 28.2400,
+    "depth": 6.9,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000059"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      37.6994,
+      38.0872,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000062",
+  "properties": {
+    "source_id": "1903092",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:35:34.692212Z",
+    "time": "2025-11-22T03:43:33.0Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 38.0872,
+    "lon": 37.6994,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 0.9,
+    "magtype": "ml",
+    "unid": "20251122_0000062"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -71.0000,
+      -20.2500,
+      -11.1
+    ]
+  },
+  "id": "20251122_0000053",
+  "properties": {
+    "source_id": "1903079",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:48:04.142977Z",
+    "time": "2025-11-22T03:42:58.0Z",
+    "flynn_region": "OFF COAST OF TARAPACA, CHILE",
+    "lat": -20.2500,
+    "lon": -71.0000,
+    "depth": 11.1,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 2.6,
+    "magtype": "ml",
+    "unid": "20251122_0000053"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1278,
+      39.2161,
+      -10.7
+    ]
+  },
+  "id": "20251122_0000058",
+  "properties": {
+    "source_id": "1903085",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:30:16.869399Z",
+    "time": "2025-11-22T03:34:28.28Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2161,
+    "lon": 28.1278,
+    "depth": 10.7,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.1,
+    "magtype": "ml",
+    "unid": "20251122_0000058"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      29.0511,
+      39.2419,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000061",
+  "properties": {
+    "source_id": "1903091",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T04:33:02.853034Z",
+    "time": "2025-11-22T03:30:12.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2419,
+    "lon": 29.0511,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000061"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2653,
+      39.0528,
+      -6.5
+    ]
+  },
+  "id": "20251122_0000051",
+  "properties": {
+    "source_id": "1903077",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:34:30.115699Z",
+    "time": "2025-11-22T03:27:41.57Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.0528,
+    "lon": 28.2653,
+    "depth": 6.5,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.5,
+    "magtype": "ml",
+    "unid": "20251122_0000051"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -71.2600,
+      -31.0100,
+      -62.4
+    ]
+  },
+  "id": "20251122_0000050",
+  "properties": {
+    "source_id": "1903075",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:33:03.284437Z",
+    "time": "2025-11-22T03:22:23.0Z",
+    "flynn_region": "COQUIMBO, CHILE",
+    "lat": -31.0100,
+    "lon": -71.2600,
+    "depth": 62.4,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 3.5,
+    "magtype": "ml",
+    "unid": "20251122_0000050"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9792,
+      39.2320,
+      -13.0
+    ]
+  },
+  "id": "20251122_0000052",
+  "properties": {
+    "source_id": "1903074",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:35:33.761096Z",
+    "time": "2025-11-22T03:03:45.3Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2320,
+    "lon": 28.9792,
+    "depth": 13.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.6,
+    "magtype": "ml",
+    "unid": "20251122_0000052"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      38.6033,
+      38.2067,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000046",
+  "properties": {
+    "source_id": "1903071",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:17:56.789591Z",
+    "time": "2025-11-22T02:55:02.0Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.2067,
+    "lon": 38.6033,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.2,
+    "magtype": "ml",
+    "unid": "20251122_0000046"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1936,
+      39.2025,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000044",
+  "properties": {
+    "source_id": "1903069",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:15:10.954333Z",
+    "time": "2025-11-22T02:54:16.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2025,
+    "lon": 28.1936,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000044"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -86.2100,
+      10.2700,
+      -25.0
+    ]
+  },
+  "id": "20251122_0000042",
+  "properties": {
+    "source_id": "1903067",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:57:08.921768Z",
+    "time": "2025-11-22T02:52:24.0Z",
+    "flynn_region": "OFF COAST OF COSTA RICA",
+    "lat": 10.2700,
+    "lon": -86.2100,
+    "depth": 25.0,
+    "evtype": "ke",
+    "auth": "INET",
+    "mag": 3.4,
+    "magtype": "m",
+    "unid": "20251122_0000042"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      38.6072,
+      38.2061,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000045",
+  "properties": {
+    "source_id": "1903070",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:16:49.777615Z",
+    "time": "2025-11-22T02:51:51.0Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.2061,
+    "lon": 38.6072,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.3,
+    "magtype": "ml",
+    "unid": "20251122_0000045"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.3075,
+      39.2025,
+      -8.1
+    ]
+  },
+  "id": "20251122_0000043",
+  "properties": {
+    "source_id": "1903068",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:15:03.506339Z",
+    "time": "2025-11-22T02:36:54.19Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2025,
+    "lon": 28.3075,
+    "depth": 8.1,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.3,
+    "magtype": "ml",
+    "unid": "20251122_0000043"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -115.4413,
+      32.4950,
+      -17.0
+    ]
+  },
+  "id": "20251122_0000036",
+  "properties": {
+    "source_id": "1903059",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:36:00.990229Z",
+    "time": "2025-11-22T02:32:17.68Z",
+    "flynn_region": "BAJA CALIFORNIA, MEXICO",
+    "lat": 32.4950,
+    "lon": -115.4413,
+    "depth": 17.0,
+    "evtype": "ke",
+    "auth": "SCSN",
+    "mag": 2.4,
+    "magtype": "ml",
+    "unid": "20251122_0000036"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      41.7311,
+      39.8364,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000048",
+  "properties": {
+    "source_id": "1903073",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:19:34.086768Z",
+    "time": "2025-11-22T02:31:19.0Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 39.8364,
+    "lon": 41.7311,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.3,
+    "magtype": "ml",
+    "unid": "20251122_0000048"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -68.8300,
+      -19.7900,
+      -117.8
+    ]
+  },
+  "id": "20251122_0000035",
+  "properties": {
+    "source_id": "1903058",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:34:14.608045Z",
+    "time": "2025-11-22T02:29:00.0Z",
+    "flynn_region": "TARAPACA, CHILE",
+    "lat": -19.7900,
+    "lon": -68.8300,
+    "depth": 117.8,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 2.7,
+    "magtype": "ml",
+    "unid": "20251122_0000035"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2661,
+      39.2078,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000039",
+  "properties": {
+    "source_id": "1903062",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:11:53.439863Z",
+    "time": "2025-11-22T02:26:44.51Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2078,
+    "lon": 28.2661,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.6,
+    "magtype": "ml",
+    "unid": "20251122_0000039"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      37.7883,
+      38.1408,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000041",
+  "properties": {
+    "source_id": "1903065",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:41:41.129491Z",
+    "time": "2025-11-22T02:20:55.0Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 38.1408,
+    "lon": 37.7883,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 0.9,
+    "magtype": "ml",
+    "unid": "20251122_0000041"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      7.0056,
+      45.8964,
+      -4.6
+    ]
+  },
+  "id": "20251122_0000033",
+  "properties": {
+    "source_id": "1903056",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:22:44.969424Z",
+    "time": "2025-11-22T02:19:16.5Z",
+    "flynn_region": "NORTHERN ITALY",
+    "lat": 45.8964,
+    "lon": 7.0056,
+    "depth": 4.6,
+    "evtype": "ke",
+    "auth": "ETHZ",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000033"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9589,
+      39.2164,
+      -9.1
+    ]
+  },
+  "id": "20251122_0000040",
+  "properties": {
+    "source_id": "1903064",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:40:29.199245Z",
+    "time": "2025-11-22T02:18:47.0Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2164,
+    "lon": 28.9589,
+    "depth": 9.1,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000040"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      20.7802,
+      38.0663,
+      -19.4
+    ]
+  },
+  "id": "20251122_0000028",
+  "properties": {
+    "source_id": "1903052",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:22:08.824418Z",
+    "time": "2025-11-22T02:08:15.904163Z",
+    "flynn_region": "GREECE",
+    "lat": 38.0663,
+    "lon": 20.7802,
+    "depth": 19.4,
+    "evtype": "ke",
+    "auth": "NOA",
+    "mag": 3.4,
+    "magtype": "ml",
+    "unid": "20251122_0000028"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1597,
+      39.2191,
+      -15.8
+    ]
+  },
+  "id": "20251122_0000038",
+  "properties": {
+    "source_id": "1903061",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:07:11.880023Z",
+    "time": "2025-11-22T02:05:43.15Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2191,
+    "lon": 28.1597,
+    "depth": 15.8,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000038"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1606,
+      39.2292,
+      -7.5
+    ]
+  },
+  "id": "20251122_0000037",
+  "properties": {
+    "source_id": "1903060",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:01:38.949438Z",
+    "time": "2025-11-22T02:04:40.31Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2292,
+    "lon": 28.1606,
+    "depth": 7.5,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.7,
+    "magtype": "ml",
+    "unid": "20251122_0000037"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -70.6700,
+      -23.2800,
+      -26.2
+    ]
+  },
+  "id": "20251122_0000047",
+  "properties": {
+    "source_id": "1903072",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:19:22.869467Z",
+    "time": "2025-11-22T02:01:41.0Z",
+    "flynn_region": "OFFSHORE ANTOFAGASTA, CHILE",
+    "lat": -23.2800,
+    "lon": -70.6700,
+    "depth": 26.2,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 2.5,
+    "magtype": "ml",
+    "unid": "20251122_0000047"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2218,
+      39.1615,
+      -13.8
+    ]
+  },
+  "id": "20251122_0000031",
+  "properties": {
+    "source_id": "1903054",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:57:28.467029Z",
+    "time": "2025-11-22T01:57:38.87Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1615,
+    "lon": 28.2218,
+    "depth": 13.8,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 0.9,
+    "magtype": "ml",
+    "unid": "20251122_0000031"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -100.6460,
+      32.7590,
+      0.0
+    ]
+  },
+  "id": "20251122_0000026",
+  "properties": {
+    "source_id": "1903039",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:56:12.891738Z",
+    "time": "2025-11-22T01:52:39.485096Z",
+    "flynn_region": "WESTERN TEXAS",
+    "lat": 32.7590,
+    "lon": -100.6460,
+    "depth": 0.0,
+    "evtype": "ke",
+    "auth": "TX",
+    "mag": 2.5,
+    "magtype": "ml",
+    "unid": "20251122_0000026"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      38.9200,
+      38.3436,
+      -6.8
+    ]
+  },
+  "id": "20251122_0000034",
+  "properties": {
+    "source_id": "1903057",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:23:27.586803Z",
+    "time": "2025-11-22T01:40:58.0Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.3436,
+    "lon": 38.9200,
+    "depth": 6.8,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 0.9,
+    "magtype": "ml",
+    "unid": "20251122_0000034"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2508,
+      39.1492,
+      -11.0
+    ]
+  },
+  "id": "20251122_0000030",
+  "properties": {
+    "source_id": "1903053",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:49:40.084758Z",
+    "time": "2025-11-22T01:33:24.81Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1492,
+    "lon": 28.2508,
+    "depth": 11.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000030"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      38.5886,
+      38.1458,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000032",
+  "properties": {
+    "source_id": "1903055",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:43:45.766Z",
+    "time": "2025-11-22T01:32:50.3Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.1458,
+    "lon": 38.5886,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000032"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      26.1163,
+      34.4330,
+      -22.5
+    ]
+  },
+  "id": "20251122_0000025",
+  "properties": {
+    "source_id": "1903038",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:40:12.582716Z",
+    "time": "2025-11-22T01:27:34.20676Z",
+    "flynn_region": "CRETE, GREECE",
+    "lat": 34.4330,
+    "lon": 26.1163,
+    "depth": 22.5,
+    "evtype": "ke",
+    "auth": "NOA",
+    "mag": 3.1,
+    "magtype": "ml",
+    "unid": "20251122_0000025"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      29.0003,
+      39.2107,
+      -13.6
+    ]
+  },
+  "id": "20251122_0000021",
+  "properties": {
+    "source_id": "1903033",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:34:32.026096Z",
+    "time": "2025-11-22T01:24:19.15Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2107,
+    "lon": 29.0003,
+    "depth": 13.6,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.1,
+    "magtype": "ml",
+    "unid": "20251122_0000021"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      120.4300,
+      -2.1400,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000022",
+  "properties": {
+    "source_id": "1903034",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:35:20.883776Z",
+    "time": "2025-11-22T01:23:37.0Z",
+    "flynn_region": "SULAWESI, INDONESIA",
+    "lat": -2.1400,
+    "lon": 120.4300,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "BMKG",
+    "mag": 3.3,
+    "magtype": "m",
+    "unid": "20251122_0000022"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -155.3802,
+      19.1902,
+      -30.3
+    ]
+  },
+  "id": "20251122_0000020",
+  "properties": {
+    "source_id": "1903032",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:27:59.419544Z",
+    "time": "2025-11-22T01:23:34.27Z",
+    "flynn_region": "ISLAND OF HAWAII, HAWAII",
+    "lat": 19.1902,
+    "lon": -155.3802,
+    "depth": 30.3,
+    "evtype": "ke",
+    "auth": "HV",
+    "mag": 2.3,
+    "magtype": "md",
+    "unid": "20251122_0000020"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2680,
+      39.1410,
+      -14.9
+    ]
+  },
+  "id": "20251122_0000024",
+  "properties": {
+    "source_id": "1903036",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:29:50.377866Z",
+    "time": "2025-11-22T01:20:58.13Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1410,
+    "lon": 28.2680,
+    "depth": 14.9,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000024"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      97.9730,
+      21.2250,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000023",
+  "properties": {
+    "source_id": "1903035",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:35:36.503501Z",
+    "time": "2025-11-22T01:19:47.0Z",
+    "flynn_region": "MYANMAR",
+    "lat": 21.2250,
+    "lon": 97.9730,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "TSB",
+    "mag": 4.0,
+    "magtype": "m",
+    "unid": "20251122_0000023"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -150.5861,
+      63.6263,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000029",
+  "properties": {
+    "source_id": "1903029",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:15:44.234588Z",
+    "time": "2025-11-22T01:16:12.797Z",
+    "flynn_region": "CENTRAL ALASKA",
+    "lat": 63.6263,
+    "lon": -150.5861,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "NEIC",
+    "mag": 2.9,
+    "magtype": "ml",
+    "unid": "20251122_0000029"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -78.7144,
+      10.5808,
+      -36.0
+    ]
+  },
+  "id": "20251122_0000027",
+  "properties": {
+    "source_id": "1903042",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:07:58.60025Z",
+    "time": "2025-11-22T01:09:18.0Z",
+    "flynn_region": "NORTH OF PANAMA",
+    "lat": 10.5808,
+    "lon": -78.7144,
+    "depth": 36.0,
+    "evtype": "ke",
+    "auth": "UNA",
+    "mag": 3.8,
+    "magtype": "m",
+    "unid": "20251122_0000027"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -71.4200,
+      -35.7500,
+      -101.8
+    ]
+  },
+  "id": "20251122_0000016",
+  "properties": {
+    "source_id": "1903026",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:13:30.950584Z",
+    "time": "2025-11-22T01:07:05.0Z",
+    "flynn_region": "MAULE, CHILE",
+    "lat": -35.7500,
+    "lon": -71.4200,
+    "depth": 101.8,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 3.4,
+    "magtype": "ml",
+    "unid": "20251122_0000016"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -104.0250,
+      31.5260,
+      -4.5
+    ]
+  },
+  "id": "20251122_0000012",
+  "properties": {
+    "source_id": "1903022",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:03:49.377333Z",
+    "time": "2025-11-22T01:01:51.614199Z",
+    "flynn_region": "WESTERN TEXAS",
+    "lat": 31.5260,
+    "lon": -104.0250,
+    "depth": 4.5,
+    "evtype": "ke",
+    "auth": "TX",
+    "mag": 2.0,
+    "magtype": "ml",
+    "unid": "20251122_0000012"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9619,
+      39.2486,
+      -7.3
+    ]
+  },
+  "id": "20251122_0000017",
+  "properties": {
+    "source_id": "1903028",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T02:25:40.197531Z",
+    "time": "2025-11-22T00:54:08.23Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2486,
+    "lon": 28.9619,
+    "depth": 7.3,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.5,
+    "magtype": "ml",
+    "unid": "20251122_0000017"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      36.1936,
+      37.0269,
+      -6.9
+    ]
+  },
+  "id": "20251122_0000019",
+  "properties": {
+    "source_id": "1903031",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:22:03.734166Z",
+    "time": "2025-11-22T00:50:02.0Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 37.0269,
+    "lon": 36.1936,
+    "depth": 6.9,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.5,
+    "magtype": "ml",
+    "unid": "20251122_0000019"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      38.6086,
+      38.2067,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000018",
+  "properties": {
+    "source_id": "1903030",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:20:04.611477Z",
+    "time": "2025-11-22T00:47:18.0Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.2067,
+    "lon": 38.6086,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.0,
+    "magtype": "ml",
+    "unid": "20251122_0000018"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -70.9700,
+      -20.2300,
+      -16.8
+    ]
+  },
+  "id": "20251122_0000091",
+  "properties": {
+    "source_id": "1903131",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:06:09.176923Z",
+    "time": "2025-11-22T00:43:46.0Z",
+    "flynn_region": "OFFSHORE TARAPACA, CHILE",
+    "lat": -20.2300,
+    "lon": -70.9700,
+    "depth": 16.8,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 2.5,
+    "magtype": "ml",
+    "unid": "20251122_0000091"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -100.6620,
+      32.7660,
+      -3.9
+    ]
+  },
+  "id": "20251122_0000006",
+  "properties": {
+    "source_id": "1903015",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:00:11.936701Z",
+    "time": "2025-11-22T00:42:57.499656Z",
+    "flynn_region": "WESTERN TEXAS",
+    "lat": 32.7660,
+    "lon": -100.6620,
+    "depth": 3.9,
+    "evtype": "ke",
+    "auth": "TX",
+    "mag": 2.1,
+    "magtype": "ml",
+    "unid": "20251122_0000006"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1345,
+      39.2477,
+      -6.4
+    ]
+  },
+  "id": "20251122_0000009",
+  "properties": {
+    "source_id": "1903019",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:02:17.527067Z",
+    "time": "2025-11-22T00:42:26.26Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2477,
+    "lon": 28.1345,
+    "depth": 6.4,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.0,
+    "magtype": "ml",
+    "unid": "20251122_0000009"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -70.9900,
+      -20.2200,
+      -15.0
+    ]
+  },
+  "id": "20251122_0000008",
+  "properties": {
+    "source_id": "1903017",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T07:04:38.093804Z",
+    "time": "2025-11-22T00:41:04.0Z",
+    "flynn_region": "OFFSHORE TARAPACA, CHILE",
+    "lat": -20.2200,
+    "lon": -70.9900,
+    "depth": 15.0,
+    "evtype": "ke",
+    "auth": "CSN",
+    "mag": 3.1,
+    "magtype": "ml",
+    "unid": "20251122_0000008"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      95.1600,
+      25.4600,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000083",
+  "properties": {
+    "source_id": "1903120",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:28:30.859763Z",
+    "time": "2025-11-22T00:41:03.0Z",
+    "flynn_region": "MYANMAR",
+    "lat": 25.4600,
+    "lon": 95.1600,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "NDI",
+    "mag": 3.5,
+    "magtype": "m",
+    "unid": "20251122_0000083"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9602,
+      39.2383,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000007",
+  "properties": {
+    "source_id": "1903016",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:57:11.597494Z",
+    "time": "2025-11-22T00:34:07.06Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2383,
+    "lon": 28.9602,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 3.0,
+    "magtype": "ml",
+    "unid": "20251122_0000007"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      37.0608,
+      37.5278,
+      -8.5
+    ]
+  },
+  "id": "20251122_0000014",
+  "properties": {
+    "source_id": "1903024",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:05:56.172693Z",
+    "time": "2025-11-22T00:32:06.0Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 37.5278,
+    "lon": 37.0608,
+    "depth": 8.5,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.2,
+    "magtype": "ml",
+    "unid": "20251122_0000014"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      44.7061,
+      42.7768,
+      -14.2
+    ]
+  },
+  "id": "20251122_0000082",
+  "properties": {
+    "source_id": "1903119",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T06:59:52.143357Z",
+    "time": "2025-11-22T00:30:36.52Z",
+    "flynn_region": "CAUCASUS REGION, RUSSIA",
+    "lat": 42.7768,
+    "lon": 44.7061,
+    "depth": 14.2,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 3.5,
+    "magtype": "ml",
+    "unid": "20251122_0000082"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -100.6507,
+      32.7627,
+      -5.0
+    ]
+  },
+  "id": "20251122_0000010",
+  "properties": {
+    "source_id": "1903020",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:19:26.000049Z",
+    "time": "2025-11-22T00:30:27.083Z",
+    "flynn_region": "WESTERN TEXAS",
+    "lat": 32.7627,
+    "lon": -100.6507,
+    "depth": 5.0,
+    "evtype": "ke",
+    "auth": "NEIC",
+    "mag": 2.6,
+    "magtype": "ml",
+    "unid": "20251122_0000010"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -16.7384,
+      28.2439,
+      -36.9
+    ]
+  },
+  "id": "20251122_0000049",
+  "properties": {
+    "source_id": "1903076",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T03:28:16.379494Z",
+    "time": "2025-11-22T00:29:52.32Z",
+    "flynn_region": "CANARY ISLANDS, SPAIN REGION",
+    "lat": 28.2439,
+    "lon": -16.7384,
+    "depth": 36.9,
+    "evtype": "ke",
+    "auth": "IGN",
+    "mag": 1.8,
+    "magtype": "ml",
+    "unid": "20251122_0000049"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.1651,
+      39.2072,
+      -8.8
+    ]
+  },
+  "id": "20251122_0000011",
+  "properties": {
+    "source_id": "1903013",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:58:56.898564Z",
+    "time": "2025-11-22T00:29:06.07Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2072,
+    "lon": 28.1651,
+    "depth": 8.8,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000011"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      126.8400,
+      7.2000,
+      -16.0
+    ]
+  },
+  "id": "20251122_0000005",
+  "properties": {
+    "source_id": "1903014",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:42:34.951487Z",
+    "time": "2025-11-22T00:28:57.0Z",
+    "flynn_region": "MINDANAO, PHILIPPINES",
+    "lat": 7.2000,
+    "lon": 126.8400,
+    "depth": 16.0,
+    "evtype": "ke",
+    "auth": "PIVS",
+    "mag": 3.2,
+    "magtype": "m",
+    "unid": "20251122_0000005"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      36.3322,
+      37.9678,
+      -7.0
+    ]
+  },
+  "id": "20251122_0000013",
+  "properties": {
+    "source_id": "1903023",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:04:48.166684Z",
+    "time": "2025-11-22T00:28:44.0Z",
+    "flynn_region": "CENTRAL TURKEY",
+    "lat": 37.9678,
+    "lon": 36.3322,
+    "depth": 7.0,
+    "evtype": "ke",
+    "auth": "AFAD",
+    "mag": 1.4,
+    "magtype": "ml",
+    "unid": "20251122_0000013"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -82.3022,
+      6.9995,
+      -10.0
+    ]
+  },
+  "id": "20251122_0000015",
+  "properties": {
+    "source_id": "1903025",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T01:07:55.762722Z",
+    "time": "2025-11-22T00:17:28.0Z",
+    "flynn_region": "SOUTH OF PANAMA",
+    "lat": 6.9995,
+    "lon": -82.3022,
+    "depth": 10.0,
+    "evtype": "ke",
+    "auth": "UNA",
+    "mag": 3.1,
+    "magtype": "m",
+    "unid": "20251122_0000015"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.9870,
+      39.2370,
+      -7.5
+    ]
+  },
+  "id": "20251122_0000004",
+  "properties": {
+    "source_id": "1903012",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:26:39.884228Z",
+    "time": "2025-11-22T00:14:24.21Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.2370,
+    "lon": 28.9870,
+    "depth": 7.5,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.7,
+    "magtype": "ml",
+    "unid": "20251122_0000004"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      28.2323,
+      39.1810,
+      -9.1
+    ]
+  },
+  "id": "20251122_0000003",
+  "properties": {
+    "source_id": "1903011",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:21:03.910797Z",
+    "time": "2025-11-22T00:11:43.22Z",
+    "flynn_region": "WESTERN TURKEY",
+    "lat": 39.1810,
+    "lon": 28.2323,
+    "depth": 9.1,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 1.9,
+    "magtype": "ml",
+    "unid": "20251122_0000003"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      40.4308,
+      38.2103,
+      -6.0
+    ]
+  },
+  "id": "20251122_0000001",
+  "properties": {
+    "source_id": "1903009",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:50:15.284294Z",
+    "time": "2025-11-22T00:02:06.06Z",
+    "flynn_region": "EASTERN TURKEY",
+    "lat": 38.2103,
+    "lon": 40.4308,
+    "depth": 6.0,
+    "evtype": "ke",
+    "auth": "EMSC",
+    "mag": 2.6,
+    "magtype": "ml",
+    "unid": "20251122_0000001"
+  }
+},{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      125.4264,
+      6.5729,
+      -214.1
+    ]
+  },
+  "id": "20251122_0000002",
+  "properties": {
+    "source_id": "1903008",
+    "source_catalog": "EMSC-RTS",
+    "lastupdate": "2025-11-22T00:17:34.111244Z",
+    "time": "2025-11-22T00:00:27.693Z",
+    "flynn_region": "MINDANAO, PHILIPPINES",
+    "lat": 6.5729,
+    "lon": 125.4264,
+    "depth": 214.1,
+    "evtype": "ke",
+    "auth": "NEIC",
+    "mag": 4.8,
+    "magtype": "mb",
+    "unid": "20251122_0000002"
+  }
+}]}
