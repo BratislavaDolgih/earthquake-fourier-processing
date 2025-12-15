@@ -13,10 +13,12 @@ public class SignalNormalization implements SignalSubjectLowLinked {
         }
     }
 
-    @Override public void notifySubscriber(List<FourierSeriesComputer.SampledSignal> signalList) {
+    @Override public SignalNormalization notifySubscriber(List<FourierSeriesComputer.SampledSignal> signalList) {
         if (obss != null) {
             obss.accepting(signalList);
         }
+
+        return this;
     }
 
     public double[] normalizeOpenly() {

@@ -114,7 +114,7 @@ public class SeismicApp {
      * получение 5-ти наиболее <i>впечатляющих</i> землетрясений,
      * построения директории к MSeed-файлам со скаченными землетрясениями.
      */
-    public void constructJSON(boolean needToConsoleLog) {
+    public void constructJSON(boolean needToConsoleLog) throws SeismicApplicationException {
         System.out.println("————————————————————————————————————————————————————————");
         System.out.println("⚡️ Run the application (instance of SeismicApp.java) ⚡️");
         System.out.println("————————————————————————————————————————————————————————");
@@ -132,6 +132,8 @@ public class SeismicApp {
             } else {
                 System.out.println("🤷‍♂️ No significant earthquakes (M >= " + JSONparser.getCurrentThreshold() +
                         ") found in Eurasia today.");
+                throw new SeismicApplicationException("There haven't been any earthquakes in the world yet. " +
+                        "Try again later.");
             }
 
         } catch (IOException e) {
@@ -142,7 +144,7 @@ public class SeismicApp {
             Thread.currentThread().interrupt();
         }
 
-        if (needToConsoleLog) JSONparser.outputByConsole();;
+        if (needToConsoleLog) JSONparser.outputByConsole();
 
         // Отписка от наблюдателя
         monitor.detach(JSONfileWriter);
@@ -231,10 +233,10 @@ public class SeismicApp {
 
 
 /*
-    ╭─────────────────────────────────────────────────────────────╮
-    │ Фаза II работы приложения:                                  │
-    │  * ВЗАИМОДЕЙСТВИЕ с ПРИЛОЖЕНИЕМ (parsing & merging signal). │
-    ╰─────────────────────────────────────────────────────────────╯
+    ╭───────────────────────────────────────────────────────────────╮
+    │ Фаза II работы приложения (only for «Вычислительные методы»): │
+    │  * ВЗАИМОДЕЙСТВИЕ с ПРИЛОЖЕНИЕМ (parsing & merging signal).   │
+    ╰───────────────────────────────────────────────────────────────╯
 */
     /**
      * Ядро с парсингом и склеиванием непосредственно сигнала.
@@ -256,10 +258,10 @@ public class SeismicApp {
         List<FourierSeriesComputer.SampledSignal> sampledBlocks = FourierSeriesComputer.convertClosely(mseedParser);
 
         // Обязательная строчка! Без этого не получится сделать merging!
-        mseedKernel.notifySubscriber(sampledBlocks); // Данные заведены в наблюдатель за числами.
-
         // Выполнение всего pipeline и ВОЗВРАТ результата, о боже...
-        return mseedKernel.normalizeOpenly();
+        return mseedKernel.notifySubscriber(sampledBlocks)
+                .normalizeOpenly(); // Данные заведены в наблюдатель за числами.
+
     }
 
     /**
@@ -326,7 +328,7 @@ public class SeismicApp {
     │  * Вычисление ряда Фурье по «сокращённой комплексной формуле». │
     ╰────────────────────────────────────────────────────────────────╯
 */
-    public ReducedComplex[] fourierCalculate(Path directory) {
+    public static ReducedComplex[] fourierCalculate(Path directory) {
         if (directory == null) {
             throw new SeismicApplicationException("Directory of normalized files isn't exist.");
         }

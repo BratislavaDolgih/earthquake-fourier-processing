@@ -14,9 +14,9 @@ public class EarthquakeMain {
         SeismicApp app = new SeismicApp();
 
         try {
-//            app.constructJSON(true);
-//            app.readFolder(app.getMSeedDirectory());
-            ReducedComplex[] complexCoordinates = app.fourierCalculate(Path.of(
+            // app.constructJSON(true);
+            // app.readFolder(app.getMSeedDirectory());
+            ReducedComplex[] complexCoordinates = SeismicApp.fourierCalculate(Path.of(
                     "C:/Users/User333/(IntellijIDEA) Java Projects/" +
                             "EarthquakeTimelapse/src/main/java/mseeds/normalized/2025-11-22"));
             System.out.println(Arrays.toString(complexCoordinates));

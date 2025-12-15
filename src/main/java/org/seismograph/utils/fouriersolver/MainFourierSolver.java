@@ -31,6 +31,7 @@ public class MainFourierSolver {
         ReducedComplex[] X = new ReducedComplex[(int)N];
         for (int n = 0; n < N / 2; ++n) {
             double angle = -2 * Math.PI * n / N;
+
             ReducedComplex twiddle = new ReducedComplex(Math.cos(angle), Math.sin(angle));
             ReducedComplex t = twiddle.mul(FOdd[n]);
 
