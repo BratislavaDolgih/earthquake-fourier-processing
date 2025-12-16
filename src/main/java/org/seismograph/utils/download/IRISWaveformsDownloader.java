@@ -1,6 +1,5 @@
 package org.seismograph.utils.download;
 
-import org.seismograph.SeismicApp;
 import org.seismograph.utils.Fileable;
 import org.seismograph.utils.dataonly.EarthquakeFeature;
 
@@ -14,6 +13,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+/**
+ * Главный класс, берущий на себя обязанность скачивать данные-waveforms с сервиса iris.edu
+ */
 public class IRISWaveformsDownloader implements Fileable {
 
     // Невозможно создать экземпляр класса.
@@ -23,6 +25,10 @@ public class IRISWaveformsDownloader implements Fileable {
     // Константный радиус поиска ближайшей станции по умолчанию
     private static final int DEFAULT_RADIUS = 20;
 
+    // Константа, показывающая сколько станций нужно для локализации (используется трёхточечная).
+    private static final int REQUIRED_STATIONS = 3;
+
+    // Простой клиент HTTP.
     private static final HttpClient client = HttpClient.newHttpClient();
 
     /**
@@ -32,170 +38,193 @@ public class IRISWaveformsDownloader implements Fileable {
     private static final DateTimeFormatter IRIS_TIME_FORMATTER =
             DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
+    // Строим ссылку, по которой будем подключаться
+    private static String constructIRISUrl(String stationNetwork,
+                                           String stationCode,
+                                           LocalDateTime start,
+                                           LocalDateTime end) {
+        // Обработка времени будет согласно формату в URL.
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+
+        return String.format(
+                "http://service.iris.edu/fdsnws/dataselect/1/query?" +
+                        "network=%s&station=%s&" +
+                        "channel=BHZ,BHN,BHE&" +
+                        "starttime=%s&endtime=%s&" +
+                        "format=miniseed",
+                stationNetwork,
+                stationCode,
+                start.format(formatter),
+                end.format(formatter)
+        );
+    }
 
 /*
 ########################################################################################
     ---===== ВЗАИМОДЕЙСТВИЕ с DOWNLOADER'ом через 1 открытый метод в API =====---
 ########################################################################################
 */
-    /**
-     * Генерация запроса к IRIS станциям.
-     * Возможно перезапись и(или) переадресация на другую станцию.
-     * @param quake текущее землетрясение.
-     * @return данные в мета-формате
-     */
-    public static WaveformResult generateWaveformResponse(EarthquakeFeature quake) {
 
+    /**
+     * Главный API метод поиска трёх ближайших станций, активные во время землетрясения,
+     * и загружает MSeed-данные со всех трёх компонент (BHZ, BHN, BHE) для каждой из них.
+     * @param quake текущее землетрясение.
+     * @return список результатов загрузки (по одному WaveformResult на станцию)
+     */
+    public static List<WaveformResult> downloadBestWaveforms(EarthquakeFeature quake) {
+    // Список результатов, которые нам будут попадаться (интересные), согласно пропаршенным JSON-нам.
+        List<WaveformResult> allResults = new ArrayList<>(REQUIRED_STATIONS);
         // Множество посещенных (зафиксированных станций) — для удаления дубликатов.
         Set<String> visitedStations = new HashSet<>();
 
+        // Временное окно [-2 мин от начала события; +10 мин после события]
+        LocalDateTime START = quake.absoluteTime().minusMinutes(5);
+        LocalDateTime END = quake.absoluteTime().plusMinutes(5);
+
+        int currentRadius = DEFAULT_RADIUS;  // Итерационная переменная, которая будет увеличивать радиус поиска.
+        final int MAX_RADIUS = 60;           // Максимальный радиус поиска.
+
+        System.out.printf("[ℹ️] Начинаем поиск и загрузку %d станций для локализации...%n", REQUIRED_STATIONS);
+
+        while (allResults.size() < REQUIRED_STATIONS && currentRadius <= MAX_RADIUS) {
+            // Запрос количества с запасом в 10 станций (заложено вовнутрь метода)!
+            List<StationDistance> candidates = findNearestCandidates(
+                    quake, currentRadius, visitedStations
+            );
+
+            if (candidates.isEmpty()) {
+                System.out.printf("[⚠️] Нет активных станций в радиусе %d°. Расширяем поиск...%n", currentRadius);
+                currentRadius += 10;
+                continue;
+            }
+
+            // Проходимся по полученным кандидатам...
+            for (StationDistance cand : candidates) {
+                String stationKey = cand.getStationKey();
+
+                if (allResults.size() >= REQUIRED_STATIONS) break;  // Достигли максимума
+                if (visitedStations.contains(stationKey)) continue; // Пропуск проверенных
+
+                System.out.printf("  [? -> ...] Пробуем станцию %s (%.2f km)...%n", stationKey, cand.distanceKm);
+
+                // ПОПЫТКА ЗАГРУЗКИ (ответ) MSEED (по трём каналам сразу же)
+                HttpResponse<byte[]> response = attemptToDownload(
+                        cand.network,
+                        cand.station,
+                        START, END
+                );
+
+                visitedStations.add(stationKey); // Зап
+
+                if (response != null) {
+                    WaveformResult result = new WaveformResult(
+                            stationKey, response,
+                            cand.latitude, cand.longitude, // Пробрасываемые долгота и широта у конкретного Waveform
+                            cand.station, cand.network
+                    );
+                    allResults.add(result);
+                    System.out.printf("[✅] Успешно загружена станция %s! Собрано %d из %d.%n",
+                            stationKey, allResults.size(), REQUIRED_STATIONS);
+                } else {
+                    // response == null, значит, данные не получены (HTTP 204 или ошибка)
+                    System.err.printf("[❌] Станция %s не предоставила полных данных (204 / ошибка).%n",
+                            stationKey);
+                }
+            }
+
+            currentRadius += 10; // Расширение радиуса.
+        }
+
+        if (allResults.size() < REQUIRED_STATIONS) {
+            System.err.printf("[❌] Не удалось собрать минимально необходимые %d станции. " +
+                            "Найдено только %d.%n",
+                    REQUIRED_STATIONS, allResults.size());
+        }
+
+        return allResults;
+    }
+
+    /**
+     * Вспомогательный метод для выполнения HTTP-запроса и тихой обработки 204.
+     * @param network "геолокация" станции
+     * @param station строчка со станцией
+     * @param start временное окно: начало
+     * @param end временное окно: конец
+     * @return {@code HttpResponse<byte[]>} с MSeed данными или null, если загрузка не удалась
+     * @see IRISWaveformsDownloader#downloadBestWaveforms
+     */
+    private static HttpResponse<byte[]> attemptToDownload(String network,
+                                                          String station,
+                                                          LocalDateTime start,
+                                                          LocalDateTime end) {
+        String url = constructIRISUrl(network, station, start, end);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .timeout(java.time.Duration.ofSeconds(30))
+                .header("User-Agent", "JavaSeismoClient (mailto:ksa8552855@gmail.com)")
+                .build();
+
         try {
-            // Строчка с пойманной станцией, обрабатывающей событие.
-            String currentStation = IRISWaveformsDownloader
-                    .strokeWithNearestStation(quake, DEFAULT_RADIUS, visitedStations);
-
-            // Временное окно [-2 мин от начала события; +10 мин после события]
-            LocalDateTime START = quake.absoluteTime().minusMinutes(2);
-            LocalDateTime END = quake.absoluteTime().plusMinutes(10);
-
-            // Формирование URL для запроса в IRIS:
-            String url = constructIRISUrl(currentStation, START, END);
-            System.out.println("[->] Downloading waveform for M" +
-                    quake.momentMagnitude() + " at " +
-                    quake.flynnRegion());
-            System.out.println("     Station: " + currentStation);
-
-            // Формирование запроса
-            HttpRequest req = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .timeout(java.time.Duration.ofSeconds(30))
-                    .header("User-Agent", "JavaSeismoClient (mailto:ksa8552855@gmail.com)")
-                    .build();
-
-            // Ответ в массиве байт.
-            HttpResponse<byte[]> response = client.send(
-                    req,
+            HttpResponse<byte[]> resp = client.send(
+                    request,
                     HttpResponse.BodyHandlers.ofByteArray()
             );
 
-            if (response.statusCode() != 200) {
-                System.err.println("[ERROR] Failed to download: HTTP " +
-                       response.statusCode());
+            // HTTP 200: OK — данные получены, возвращаем
+            if (resp.statusCode() == 200) {
+                return resp;
             }
 
-            // Если выскочила проблема HTTP 204 и мы хотим всё-таки получить данные...
-            byte attempt = 1;
-            int radius = DEFAULT_RADIUS;
-
-            // Даём три попытки получения данных с другой станции.
-            while (response.statusCode() == 204 && attempt <= 3) {
-                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-                String curStationKey = extractStationKey(currentStation);
-                visitedStations.add(curStationKey);
-
-                radius += 10;
-                System.out.printf("[⚠️] Attempt %d: no data (HTTP 204). " +
-                        "Expanding search radius to %d°...%n", attempt, radius);
-
-                // Запуск с новейшим радиусом (+10 град. от прошлого)
-                currentStation = IRISWaveformsDownloader
-                        .strokeWithNearestStation(quake, radius, visitedStations);
-
-                if (currentStation == null) {
-                    System.err.println("[❌] No alternative stations found");
-                    break;
-                }
-
-                // Формирование URL для запроса в IRIS:
-                url = constructIRISUrl(currentStation, START, END);
-                System.out.printf("[->] Downloading waveform for M%.1f at %s%n",
-                        quake.momentMagnitude(), quake.flynnRegion());
-                System.out.println("     Station: " + currentStation);
-
-
-                // Формирование запроса
-                req = HttpRequest.newBuilder()
-                        .uri(URI.create(url))
-                        .timeout(java.time.Duration.ofSeconds(30))
-                        .header("User-Agent", "JavaSeismoClient (mailto:ksa8552855@gmail.com)")
-                        .build();
-
-                // Ответ в массиве байт.
-                response = client.send(
-                        req,
-                        HttpResponse.BodyHandlers.ofByteArray()
-                );
-
-                attempt++; // Следующая попытка.
-                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
-            }
-
-            if (response.statusCode() == 200) {
-                return new WaveformResult(currentStation, response);
-            } else {
-                // Тут уже неважно, какой статус кода: 204, 404, 505!
-                // Данных либо нет, либо они невалдины.
-                System.err.printf("[❌] Финальная попытка не сработала. " +
-                                "Статус ответа: %d. Будет возвращено null!%n",
-                        response.statusCode());
-
+            // HTTP 204: No Content — нет данных, но запрос валиден.
+            if (resp.statusCode() == 204) {
+                // Вывод того, что станция послала с ответом 204 уже есть выше.
                 return null;
             }
-        } catch (IOException | InterruptedException e) {
-            System.err.println("[\uD83D\uDCA5] Download error: " + e.getMessage());
+
+            // Другие ошибки (404, 500 и т.д.)
+            System.err.printf("    [ERROR] Загрузка %s.%s: HTTP %d%n", network, station, resp.statusCode());
+            return null;
+        } catch (IOException | InterruptedException exc) {
+            System.err.printf("[FATAL ERROR] Download exception for %s.%s: %s%n", network, station, exc.getMessage());
             return null;
         }
     }
 
     /**
-     * Вспомогательный метод, помогающий доставать ключ станции (формат: {@code NETWORK.STATION})
-     * @param stationQuery записка с указанием станции
-     * @return готовый ключ станции
+     * Запрашивание у IRIS FDSN Station Service только список координат, засчёт {@code level=station},
+     * которые вообще работали во время землетрясения. Каждая найденная станция — просто точка на карте
+     * с неизвестным расстояниям до эпицентра.
+     * <p>
+     * Метод возвращает список потенциальных станций-кандидатов, отсортированных по возрастанию
+     * расстояния до эпицентра.
+     * <p>
+     * IMPORTANT: Этот метод только находит координаты и не гарантирует,
+     * что станция имеет данные (MSeed) для всех трёх каналов (BHZ, BHN, BHE).
+     *
+     * @param quake            входящее землетрясение, у которого ищутся станции
+     * @param maxRadius        максимальный радиус поиска от эпицентра в географических градусах
+     * @param excludedStations множество станций {@code NET.STA}, которые уже были проверены
+     * @return отсортированный список объектов с метаданными ближайших станций.
      */
-    private static String extractStationKey(String stationQuery) {
-        String network = null;
-        String station = null;
-        for (String param : stationQuery.split("&")) {
-            if (param.startsWith("network=")) {
-                network = param.substring(8);
-            } else if (param.startsWith("station=")) {
-                station = param.substring(8);
-            }
-        }
-
-        if (network == null || station == null) {
-            throw new IllegalArgumentException("Malformed station query: " + stationQuery);
-        }
-
-        return network + "." + station;
-    }
-
-    /**
-     * Метод поиска ближайшей станции по географическим характеристикам станции.
-     * <br>Поиск подразумевает в радиусе, выраженному в географических градусах</br>
-     * <br>(1 радиус примерно около 110 км)</br>
-     * @param quake входящее землетрясение
-     * @return подстрока запроса, содержащая кодовое название ближайшей к землетрясению станции.
-     */
-    private static String strokeWithNearestStation(EarthquakeFeature quake,
+    private static List<StationDistance> findNearestCandidates(EarthquakeFeature quake,
                                                    int maxRadius,
                                                    Set<String> excludedStations) {
 
-        // Забираем поля землетрясения:
-        final double latitude = quake.latitude();             // Широта
-        final double longitude = quake.longitude();           // Долгота
-        final LocalDateTime quakeTime = quake.absoluteTime(); // Абсолютное время случившегося
+        // Забираем поля входного землетрясения:
+        final double latitude = quake.latitude();              // Широта
+        final double longitude = quake.longitude();            // Долгота
+        final LocalDateTime quakeTime = quake.absoluteTime();  // Абсолютное время случившегося события
 
         // Найденные станции (представление в метаданных)
         List<StationDistance> founded = new ArrayList<>();
 
         /*
-        * Создаём временное окно землетрясения (чтобы был полностью покрыт «континуум»)
-        * Окно рассматривается: [за 1 час до события; по прошествию 1 часа после события]
+        * Создаём временное окно землетрясения (берём НЕМНОГО, потому что нам важно разложение, а не всё время)
+        * Окно рассматривается: [за 5 минут до события; по прошествию 5 минут после события]
         * */
-        final String startStationTime = quakeTime.minusHours(1)
+        final String startStationTime = quakeTime.minusMinutes(5)
                 .format(IRIS_TIME_FORMATTER);
-        final String endStationTime = quakeTime.plusHours(1)
+        final String endStationTime = quakeTime.plusMinutes(5)
                 .format(IRIS_TIME_FORMATTER);
 
         /*
@@ -205,15 +234,15 @@ public class IRISWaveformsDownloader implements Fileable {
         */
         System.out.printf("[ℹ️] Searching stations within %d° radius...%n", maxRadius);
 
-        // Создаём ссылку к IRIS Service (через него получим waveforms)
+        // Создаём ссылку к IRIS Service
         String stationURL = String.format(
                 java.util.Locale.ROOT,
                 "https://service.iris.edu/fdsnws/station/1/query?" +
                         "latitude=%.4f&longitude=%.4f&" +
                         "maxradius=%d&" +  // радиус в градусах (~1110 км на экваторе)
-                        "level=channel&" +
+                        "level=station&" + // Ключевое изменение: ищем станции, которые обрабатывали ТЕКУЩЕЕ
                         "format=text&" +
-                        "channel=BHZ&" +  // канал вертикальной компоненты
+                        // Канал конкретный удаляется, ведь нам обязательно нужны волны с BHZ, BHE, BHN.
                         "starttime=%s&" +
                         "endtime=%s",
                 latitude, longitude, maxRadius,
@@ -227,7 +256,8 @@ public class IRISWaveformsDownloader implements Fileable {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(stationURL))
                 .timeout(java.time.Duration.ofSeconds(20)) // максимальное время ожидания 20 сек
-                .header("User-Agent", "JavaSeismoClient (mailto:ksa8552855@gmail.com)")
+                .header("User-Agent",
+                        "JavaSeismoClient (mailto:ksa8552855@gmail.com)")
                 .build();
 
         try {
@@ -241,11 +271,6 @@ public class IRISWaveformsDownloader implements Fileable {
                     && response.body() != null
                     && !response.body().isBlank()) { // запрос успешно принят и обработан
 
-                /*
-                    Строки ответа будут иметь структуру, примерно такую:
-                    GE|BFO||BHZ|48.33|8.33|640|1990-01-01T00:00:00|--
-                */
-
                 String[] lines = response.body().split("\\r?\\n");
 
                 for (String line : lines) {
@@ -254,24 +279,31 @@ public class IRISWaveformsDownloader implements Fileable {
 
                     String[] parts = line.split("\\|");
 
-                    // Структура: NET|STA|LOC|CHA|LAT|LON|ELE|DEP|START|END
-                    if (parts.length >= 6) {
+                    // Структура для level=station: NET|STA|LAT|LON|ELE|START|END
+                    // Здесь нужно 4 поля, чтобы получить координаты
+                    if (parts.length >= 4) {
                         String net = parts[0].trim();
                         String st = parts[1].trim();
-                        double statLat = Double.parseDouble(parts[4].trim());
-                        double statLon = Double.parseDouble(parts[5].trim());
 
-                        String stationKey = net + "." + st;
+                        try {
+                            // Update: LAT теперь parts[2], LON = parts[3]
+                            double statLat = Double.parseDouble(parts[2].trim());
+                            double statLon = Double.parseDouble(parts[3].trim());
 
+                            String stationKey = net + "." + st;
 
-                        // Повторения игнорируются
-                        if (excludedStations.contains(stationKey)) { continue; }
+                            // Повторения игнорируются
+                            if (excludedStations.contains(stationKey)) { continue; }
 
-                        StationDistance sd = new StationDistance(net, st, statLat, statLon);
+                            StationDistance sd = new StationDistance(net, st, statLat, statLon);
 
-                        // Точное расстояние по дуге большого круга от ЭПИЦЕНТРА до КОНКРЕТНОЙ СТАНЦИИ
-                        sd.distanceKm = EarthquakeFeature.haversine(latitude, longitude, statLat, statLon);
-                        founded.add(sd);
+                            // Точное расстояние по дуге большого круга от ЭПИЦЕНТРА до КОНКРЕТНОЙ СТАНЦИИ
+                            sd.distanceKm = EarthquakeFeature.haversine(latitude, longitude, statLat, statLon);
+                            founded.add(sd); // Отправляем подготовленные данные
+                        } catch (NumberFormatException nfe) {
+                            // Если даже после смены индексов парсинг не удался (пришло имя города)
+                            System.err.println("[💥] WARNING: Corrupted line in station response: " + line);
+                        }
                     }
                 }
             }
@@ -282,95 +314,24 @@ public class IRISWaveformsDownloader implements Fileable {
 
         // Если что-то нашли, то...
         if (!founded.isEmpty()) {
-            // Посортируем по дистанции
+            // Сортируем по дистанции
             founded.sort(Comparator.comparingDouble(StationDistance::getDistanceKm));
 
-            StationDistance nearest = founded.getFirst();
+            // Ограничиваем щедро до 10, чтобы без перегрузов
+            int limit = Math.min(10, founded.size());
 
-            System.out.printf("[✅] Nearest station found: %s.%s at %.2f km%n",
-                    nearest.network, nearest.station, nearest.distanceKm);
-
-            return String.format("network=%s&station=%s&", nearest.network, nearest.station);
+            return founded.subList(0, limit);
         }
 
-        // Если не удалось найти станцию, то берем крайние.
-        String fallback = fallbackStation(latitude, longitude);
-        String fallbackKey = extractStationKey(fallback);
-
-        if (excludedStations.contains(fallbackKey)) {
-            System.err.println("[❌] Fallback station already tried: " + fallbackKey);
-            return null;
-        }
-
-        System.out.println("[ℹ️] Using fallback station: " + fallbackKey);
-        return fallback;
+        // Если не удалось найти станцию, то возвращаем пустой список.
+        return Collections.emptyList();
     }
 
-    /**
-     * Генерирует строку со станцией по умолчанию,
-     * если станция не нашлась в {@link IRISWaveformsDownloader#strokeWithNearestStation(EarthquakeFeature, int, Set)}.
-     * <p>Работает в самом крайнем случае, потому что станции придётся пройти процесс попыток (3)</p>
-     * @param latitude широта
-     * @param longitude долгота
-     * @return готовая подстрочка со станцией, обрабатывающая землетрясение
-     */
-    private static String fallbackStation(double latitude, double longitude) {
-        String defaultStation = null;
-
-        // Северо-Запад (Европейская часть)                   Обнинск, Россия
-        if (latitude >= 55 && longitude < 60)      { defaultStation = "II OBN"; }
-
-        // Северо-Восток (Сибирь)                              Якутск, Россия
-        else if (latitude >= 55)                   { defaultStation = "IU YAK"; }
-
-        // Кавказ / Восточная Европа               Фюрстенфельдбрук, Германия
-        else if (latitude >= 40 && longitude < 40) { defaultStation = "GE FUR"; }
-
-        // Средняя Азия / Ближний Восток                        Анкара, Турция
-        else if (latitude < 40 && longitude < 60)  { defaultStation = "IU ANTO"; }
-
-        // Восточная Азия / Китай / Монголия                     Пекин, Китай
-        else if (longitude > 100)                  { defaultStation = "IC BJT"; }
-
-        // Центральная Евразия                                  Россия, Алтай
-        else                                       { defaultStation = "IU TLY"; }
-
-        System.err.println("[ℹ️] Using fallback station: " + defaultStation);
-
-        String[] ds = defaultStation.split(" ");
-
-        return String.format("network=%s&station=%s&", ds[0].trim(), ds[1].trim());
-    }
 
     /**
-     * Метод построения ссылки к станции.
-     * @param station подстрока
-     *                (из {@link IRISWaveformsDownloader#strokeWithNearestStation(EarthquakeFeature, int, Set)}
-     *                или {@link IRISWaveformsDownloader#fallbackStation(double, double)})
-     * @param start момент старта отслеживания
-     * @param end момент конца отслеживания
-     * @return строковое представление URL.
-     */
-    private static String constructIRISUrl (String station,
-                                            LocalDateTime start,
-                                            LocalDateTime end) {
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-
-        return String.format(
-                "http://service.iris.edu/fdsnws/dataselect/1/query?" +
-                        "%s" +
-                        "starttime=%s&endtime=%s&" +
-                        "format=miniseed",
-                station,
-                start.format(formatter),
-                end.format(formatter)
-        );
-    }
-
-    /**
-     * Класс метаданных и полезных методов для станций,
-     * в число которых входит: <i>сеть, станцция, широта, долгота, дистанция в километрах</i>.
+     * Класс метаданных и полезных методов НАЙДЕННЫХ СТАНЦИЙ,
+     * в число которых входит: <i>сеть, станция, широта, долгота, дистанция в километрах</i>.
+     * @see IRISWaveformsDownloader#findNearestCandidates(EarthquakeFeature, int, Set)
      */
     private static class StationDistance {
         final String network;
@@ -386,6 +347,10 @@ public class IRISWaveformsDownloader implements Fileable {
             this.longitude = lon;
         }
 
+        public String getStationKey() {
+            return this.network + "." + this.station;
+        }
+
         // Геттер для сравнения
         public double getDistanceKm() {
             return distanceKm;
@@ -393,11 +358,18 @@ public class IRISWaveformsDownloader implements Fileable {
     }
 
     /**
-     * Метаданные результата {@code Waveform}
-     * @param station станция
-     * @param response что получили от сервера
+     * Метаданные результата {@code Waveform}.
+     * @param station станция, которая рассматривала этот waveform
+     * @param response что получили от сервера (ответ в байтовом представлении)
+     * @param throwOverLatitude широта, которая по факту будет далее пробрасываться до момента локализации
+     * @param throwOverLongitude долгота, которая по факту будет далее пробрасываться до момента локализации
+     * @param throwOverStation код станции, который по факту будет далее пробрасываться до момента локализации
+     * @param throwOverNetwork код сети станции, который по факту будет далее пробрасываться до момента локализации
      */
-    public record WaveformResult(String station, HttpResponse<byte[]> response) {}
+    public record WaveformResult(String station, HttpResponse<byte[]> response,
+                                 double throwOverLatitude, double throwOverLongitude,
+                                 String throwOverStation,
+                                 String throwOverNetwork) {}
 
     /**
      * Метод, который в классе {@link IRISWaveformsDownloader} не поддерживается.
