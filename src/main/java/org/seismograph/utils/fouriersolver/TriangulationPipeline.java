@@ -338,7 +338,7 @@ public class TriangulationPipeline {
      * @param fs интервал дискретизации (нужен для обратной конверсии)
      * @return чистые секунды
      */
-    public static double estimateDelaySeconds(double[] a, double[] b, double fs) {
+    public static CCTuple estimateDelaySeconds(double[] a, double[] b, double fs) {
         // Чистка:
         double[] demeanedA = demean(a);
         double[] demeanedB = demean(b);
@@ -363,20 +363,21 @@ public class TriangulationPipeline {
         double lagSamples = (kMax + sub) - zeroIndex;
 
         // Конверсия: сэмплы -> секунды
-        return lagSamples / fs;
+        double delaySec = lagSamples / fs;
+
+        return new CCTuple(delaySec, corr, fs);
     }
 
     /*
-        ╭──────────────────────────╮
-        │ JAVAFX VISUALIZING       │
-        ╰──────────────────────────╯
+        ╭───────────────────────────────────────────╮
+        │ JAVAFX VISUALIZING DATA (throwing over)   │
+        ╰───────────────────────────────────────────╯
      */
 
     /**
      * Результат кросс-корреляции, включающий вычисленную задержку и сам массив CC.
      */
-    public record CCTuple(double delaySec, double[] correlation) {}
-
+    public record CCTuple(double delaySec, double[] correlation, double fs) {}
 
 
     /*

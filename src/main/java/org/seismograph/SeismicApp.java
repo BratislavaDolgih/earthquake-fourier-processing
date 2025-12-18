@@ -1,21 +1,15 @@
 package org.seismograph;
 
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.stage.Stage;
 import org.seismograph.utils.EarthquakeMonitor;
 import org.seismograph.utils.JacksonQuakeParser;
 import org.seismograph.utils.SeismicApplicationException;
 import org.seismograph.utils.dataonly.EarthquakeFeature;
-import org.seismograph.utils.removal.ReducedComplex;
 import org.seismograph.utils.download.IRISWaveformsDownloader;
 import org.seismograph.utils.fouriersolver.*;
 import org.seismograph.utils.outing.EarthquakeJSONFileWriter;
 import org.seismograph.utils.outing.NormalizedWaveformTXTWriter;
 import org.seismograph.utils.outing.WaveformMSEEDWriter;
+import org.seismograph.utils.visual.CorrelationGrapher;
 
 import static org.seismograph.utils.fouriersolver.SeismicSignalExtractor.SampledSignal;
 
@@ -45,6 +39,7 @@ import java.util.List;
  * необходимая информация вычисляется, но не каталогируется, потому что не происходит анализа данных
  */
 public class SeismicApp {
+    
 /*
     ╭──────────────────────────────────────────────────────────────────────────────╮
     │ Блок с:                                                                      │
@@ -529,7 +524,7 @@ public class SeismicApp {
 
         try {
             // ----------------------------------------------------------------------
-            // 1. ПОДГОТОВКА ДАННЫХ (Конверсия в X, Y относительно опорной точки)
+            // ПОДГОТОВКА ДАННЫХ (Конверсия в X, Y относительно опорной точки)
             // ----------------------------------------------------------------------
 
             System.out.println("\n\n#####################################################");
@@ -544,26 +539,54 @@ public class SeismicApp {
             }
 
             // ----------------------------------------------------------------------
-            // 2. ОТБОР P-ВОЛНЫ (STA/LTA + Кросс-корреляция)
+            // ОТБОР P-ВОЛНЫ (STA/LTA + Кросс-корреляция)
             // ----------------------------------------------------------------------
 
             // ВАЖНО: pickPWaveArrivals использует STA/LTA для якорной станции
             // и кросс-корреляцию для получения относительных задержек (TDOA)
             // для остальных. Временные метки являются относительными (от начала записи).
-            EarthquakeLocalizer.PWaveSpawning.pickPWaveArrivals(preparedData);
+            var returnTuple = EarthquakeLocalizer.PWaveSpawning.pickPWaveArrivals(preparedData);
 
             // ----------------------------------------------------------------------
-            // 3. ЗАПУСК РЕШАТЕЛЯ (TDOA на основе Гаусса-Ньютона)
+            // ЗАПУСК РЕШАТЕЛЯ (TDOA на основе Гаусса-Ньютона)
             // ----------------------------------------------------------------------
 
             EarthquakeLocalizer.PWaveSpawning.localizeAllEvents(preparedData);
 
+            this.corrTuple = returnTuple; // Достали корреляцию!
         } catch (IllegalStateException e) {
             System.err.println("[❌] Критическая ошибка локализации: " + e.getMessage());
             throw new SeismicApplicationException("Локализация прервана из-за ошибки в данных.");
         }
     }
 
+/*
+    ╭────────────────────────────────────╮
+    │ VISUALIZING (JavaFX library jar).  │
+    ╰────────────────────────────────────╯
+*/
+    /**
+     * Массив корреляции, который мы будем выводить. Заполняется в конце пайплайна.
+     * @see SeismicApp#runLocalizationPipeline()
+     */
+    private TriangulationPipeline.CCTuple corrTuple = null;
+
+    public final boolean canIVisualize() {
+        return corrTuple != null;
+    }
+
+    public void wrappedVisualize() {
+        if (!canIVisualize()) {
+            System.err.println("[❌] Критическая ошибка визуала: не было ещё локализации");
+            return;
+        }
+
+        CorrelationGrapher.showCorrelation(
+                corrTuple.correlation(),
+                corrTuple.fs(),
+                "Демонстрация графика корреляции на основе FFT"
+        );
+    }
 
 /*
     ╭────────────────────────────────────╮

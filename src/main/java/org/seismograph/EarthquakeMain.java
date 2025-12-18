@@ -15,8 +15,7 @@ public class EarthquakeMain {
                 app.runLocalizationPipeline();
             }
 
-            // SeismicApp.setVisualizingData(complexCoordinates);
-            // SeismicApp.visualize(complexCoordinates);
+            if (app.canIVisualize()) app.wrappedVisualize();
         } catch (Exception e) {
             e.printStackTrace();
         }

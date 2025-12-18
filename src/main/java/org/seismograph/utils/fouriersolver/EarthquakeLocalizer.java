@@ -10,7 +10,6 @@ public class EarthquakeLocalizer {
     // P-волна, среднее значение в коре
     private static final double waveSpeed = 6.0;
 
-
     public static class PWaveSpawning {
 
         /**
@@ -18,7 +17,7 @@ public class EarthquakeLocalizer {
          * STA/LTA для первичной станции и кросс-корреляцию для остальных.
          * @throws IllegalStateException Если не найдена P-волна на опорной станции.
          */
-        public static void pickPWaveArrivals(List<StationData> allPreparedData) throws IllegalStateException {
+        public static TriangulationPipeline.CCTuple pickPWaveArrivals(List<StationData> allPreparedData) throws IllegalStateException {
 
             System.out.println("\n-----( [Step 3/4] ОПРЕДЕЛЕНИЕ ВРЕМЕНИ ПРИБЫТИЯ P-ВОЛНЫ (STA/LTA + CC) )-----");
 
@@ -35,6 +34,9 @@ public class EarthquakeLocalizer {
             // ИСПРАВЛЕНИЕ # Установка 0.0, Tp не может быть раньше начала записи.
             final double MIN_ARRIVAL_TIME_SEC = 0.0;
 
+            // Удачную захватим, чтобы график получился правильный и красивый.
+            TriangulationPipeline.CCTuple lastSuccessfulTuple = null;
+
             // Итерация по тройкам (поскольку данные в allPreparedData сгруппированы по 3)
             for (int i = 0; i < allPreparedData.size(); i += 3) {
 
@@ -50,7 +52,7 @@ public class EarthquakeLocalizer {
                 System.out.printf("\n--- Событие №%d: Обработка 3 станций ---\n", eventIndex);
 
                 // 1. Выбираем якорную станцию (Station 0 в тройке)
-                StationData anchor = currentEventData.get(0);
+                StationData anchor = currentEventData.getFirst();
                 double fs = anchor.pipelineSignal.fs;
                 double[] pAnchor = anchor.pipelineSignal.samples;
 
@@ -91,7 +93,6 @@ public class EarthquakeLocalizer {
                 double[] windowedAnchor = TriangulationPipeline.slice(pAnchor, startA, lenA);
                 // --------------------------------------------------------------------------------
 
-
                 for (int j = 1; j < currentEventData.size(); j++) {
                     StationData current = currentEventData.get(j);
                     double[] pCurrent = current.pipelineSignal.samples;
@@ -104,11 +105,13 @@ public class EarthquakeLocalizer {
                     );
 
                     // Вычисляем задержку CC между двумя ОКНАМИ
-                    double windowDelay = TriangulationPipeline.estimateDelaySeconds(
+                    TriangulationPipeline.CCTuple tupleForFX = TriangulationPipeline.estimateDelaySeconds(
                             windowedCurrent,
                             windowedAnchor,
                             fs
                     );
+
+                    double windowDelay = tupleForFX.delaySec();
 
                     // Корректировка:
                     // 1. Сначала находим время Tp якоря относительно начала *ОКНА ПОИСКА*
@@ -141,9 +144,13 @@ public class EarthquakeLocalizer {
                         // Лог для проверки
                         System.out.printf("[✅] Станция %s | Сдвиг (CC): %.3f сек | Общий Tp: %.3f сек\n",
                                 current.channel, delaySec, refinedArrivalTimeSec);
+
+                        lastSuccessfulTuple = tupleForFX;
                     }
                 }
             }
+
+            return lastSuccessfulTuple;
         }
 
         /**
@@ -163,7 +170,7 @@ public class EarthquakeLocalizer {
                 // Проверяем на наличие 3 станций и на отсутствие "плохих" Tp (равных 0.0)
                 if (currentEventData.size() < 3 ||
                         currentEventData.stream().anyMatch(sd -> sd.getArrivalTimeSec() == 0.0)) {
-                    System.err.printf("========================================================\n");
+                    System.err.print("========================================================\n");
                     System.err.printf("[❌] Локализация события %d пропущена: недостаточно данных или сбой Tp.\n", eventIndex);
                     continue;
                 }
@@ -179,7 +186,7 @@ public class EarthquakeLocalizer {
 
                 TriangulationPipeline.TDOALocalizer.Point solution = null;
 
-                System.out.printf("========================================================\n");
+                System.out.print("========================================================\n");
                 try {
                     // Решатель TDOA (возвращает Point(x, y))
                     solution = TriangulationPipeline.TDOALocalizer.localize(stations, V);
@@ -197,7 +204,7 @@ public class EarthquakeLocalizer {
                     // Для лога пока t0 не отображаем.
 
                     // Получаем опорную точку
-                    StationData refData = currentEventData.get(0);
+                    StationData refData = currentEventData.getFirst();
                     double refLat = refData.getRefLatitude();
                     double refLon = refData.getRefLongitude();
 
@@ -208,7 +215,7 @@ public class EarthquakeLocalizer {
 
                     System.out.printf("✨ ЛОКАЛИЗАЦИЯ СОБЫТИЯ %d УСПЕШНА (TDOA) ✨\n", eventIndex);
                     System.out.printf("-> Эпицентр (X, Y) относительно центра: (%.3f км, %.3f км)\n", x, y);
-                    System.out.printf("-> **Эпицентр (Lat, Lon): (%.4f, %.4f)**\n", lat, lon);
+                    System.out.printf("-> Эпицентр (Lat, Lon): (%.4f, %.4f)\n", lat, lon);
                     System.out.printf("-> Опорный центр: (%.4f, %.4f)\n", refLat, refLon);
                     // Примечание: t0 теперь отсутствует, так как TDOA его не дает
                 }
